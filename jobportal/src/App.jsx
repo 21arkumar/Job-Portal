@@ -4,6 +4,22 @@ import './App.css'
 export default class App extends Component {
     showSignIn(){
         let popup = document.getElementById("popup");
+        let signin = document.getElementById("signIn");
+        let signup = document.getElementById("signup");
+        let popupHeader = document.getElementById("popupHeader");
+        signup.style.display = "none";
+        signin.style.display = "block";
+        popupHeader.innerHTML = "LOGIN";
+        popup.style.display = "block";
+    }
+    showSignUp(){
+        let popup = document.getElementById("popup");
+        let signin = document.getElementById("signIn");
+        let signup = document.getElementById("signup");
+        let popupHeader = document.getElementById("popupHeader");
+        signup.style.display = "block";
+        signin.style.display = "none";
+        popupHeader.innerHTML = "Create new account";
         popup.style.display = "block";
     }
 
@@ -30,9 +46,32 @@ export default class App extends Component {
                             <div className='div1'></div>
                             <div className='div2'>
                                 Don't have an account?
-                                <label>Sign Up Now</label>                            
+                                <label onClick={this.showSignUp}>Sign Up Now</label>                            
                             </div>
-                        
+                        </div>
+                        <div id='signup'>
+                            <label>Full Name </label>
+                            <input type="text" id="fullname"/>
+                            
+                            <label>Email </label>
+                            <input type="text" id="email"/>
+                            
+                            <label>Role</label>
+                            <select id="role">
+                                <option value=''></option>
+                                <option value='1'>Admin</option>
+                                <option value='2'>Employer</option>
+                                <option value='3'>Job Seeker</option>
+                            </select>
+                            
+                            <label>Password</label>
+                            <input type="password" id="password" />
+                            
+                            <label>Confirm Password</label>
+                            <input type="password" id="confirmpassword" />
+                            
+                            <button>Register</button>
+                            <div>Already have an account? <span onClick={this.showSignIn}>Sign In</span></div>
                         </div>
                     </div>
                 </div>
